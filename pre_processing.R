@@ -44,11 +44,16 @@ dat_reshaped <- dat_reshaped %>%
 
 table(dat_reshaped$titles)
 
-dat_reshaped[dat_reshaped$titles %like% "Martin", ] <- 'Mrs'
+dat_reshaped[dat_reshaped$titles %like% "Martin", 'titles'] <- 'Mrs'
 
 
+# Convert to dummy variables
 
+table(dat_reshaped$Sex)
 
+dat_reshaped$Sex <- as.numeric(as.factor(dat_reshaped$Sex))
+
+table(dat_reshaped$Sex) # 1 is female!!
 
 
 
